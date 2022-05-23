@@ -1,0 +1,38 @@
+<mat-toolbar color="primary" class="docs-navbar-header mat-elevation-z2">
+  <mat-toolbar-row>
+    <div class="brand-title">
+      <button mat-button [routerLink]="['/']">
+        <mat-icon>book</mat-icon> Book Cart
+      </button>
+    </div>
+    <div>
+     <!--  <span>app search</span> -->
+    </div>
+    <div>
+      <button
+        mat-icon-button
+        [routerLinkActive]="['link-active']"
+        [routerLink]="['/wishlist']"
+      >
+        <mat-icon matBadge="{{ count$ | async }}" matBadgeColor="warn"
+          >favorite</mat-icon
+        >
+      </button>
+     <!--  <button
+        mat-icon-button
+        [routerLinkActive]="['link-active']"
+        [routerLink]="['']"
+      >
+        <mat-icon matBadge="" matBadgeColor="warn">shopping_cart</mat-icon>
+      </button>
+      <button
+        mat-button
+        [routerLinkActive]="['link-active']"
+        [routerLink]="['']"
+      >
+        Login
+      </button> -->
+      <app-themepicker></app-themepicker>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

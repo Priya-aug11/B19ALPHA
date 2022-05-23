@@ -1,0 +1,32 @@
+<mat-card
+  class="books-card mat-elevation-z2"
+  [class.on-books-card-hover]="isActive"
+  (mouseover)="isActive = true"
+  (mouseout)="isActive = false"
+>
+  <mat-card-content class="image-card">
+    <a
+      [routerLink]="['/book-information/', books.bookId]"
+      matTooltip="{{ books.title }}"
+      matTooltipClass="example-tooltip"
+      aria-label="books title"
+      ><img
+        class="preview-image"
+        mat-card-image
+        src="../../../../assets/img/{{books.coverFileName}}"
+        alt="books cover image"
+    /></a>
+    <div class="favourite mat-elevation-z4">
+      <app-book-add-to-fav [bookId]="books.bookId"></app-book-add-to-fav>
+    </div>
+  </mat-card-content>
+  <mat-card-content>
+    <div class="card-title">
+      <a [routerLink]="['/book-information/', books.bookId]">
+        <strong>{{ books.title }}</strong>
+      </a>
+    </div>
+    <p>{{ books.price | currency: "INR" }}</p>
+    <app-book-move-to-bag></app-book-move-to-bag>
+  </mat-card-content>
+</mat-card>
